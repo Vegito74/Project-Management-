@@ -13,10 +13,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GradeEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class GradeEntity extends BaseEntity {
 
     @OneToOne
     @JoinColumn(name = "submission_id", nullable = false)

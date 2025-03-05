@@ -25,27 +25,27 @@ public class ClassAPI {
     private ClassRequestService classRequestService;
 
 
-    @PostMapping   // Thêm lớp học mới
+    @PostMapping  // Thêm lớp học mới
     public ResponseEntity<?> createUser(@Valid @RequestBody ClassDTO newClass) {
         log.info("Creating new class: {}", newClass.getClassName());
-
         ClassDTO classDTO = classService.insertClass(newClass);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new ResponseData<>(HttpStatus.CREATED.value(), "Lớp học được thêm thành công!", classDTO));
     }
 
-    @PutMapping("/{requestId}/approve")
-    public ResponseEntity<String> approveRequest(@Valid @PathVariable Integer requestId) {
-        classRequestService.approveRequest(requestId);
-        return ResponseEntity.ok("Yêu cầu đã được duyệt!");
+    @PutMapping("/{id}/approve")
+    public ResponseEntity<?> approveRequest(@PathVariable("id") Integer id) {
+        classRequestService.approveRequest(id);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(new ResponseData<>(HttpStatus.CREATED .value(),
+                        "Yêu cầu đã được duyệt!",
+                        null));
+
     }
 
-    @PutMapping("/{classId}/requests/{requestId}/reject")
+    @PutMapping("/{requestId}/reject")
     public ResponseEntity<String> rejectRequest( @PathVariable Integer requestId) {
         classRequestService.rejectRequest(requestId);
         return ResponseEntity.ok("Yêu cầu đã bị từ chối!");
     }
-
-
-
 }

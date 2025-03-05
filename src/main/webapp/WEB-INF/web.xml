@@ -28,10 +28,17 @@
     <servlet>
         <servlet-name>DisplayImage</servlet-name>
         <servlet-class>com.javaweb.utils.ReadFileUtils</servlet-class>
+        <multipart-config>
+            <location></location> <!-- Để trống để sử dụng bộ nhớ -->
+            <max-file-size>10485760</max-file-size> <!-- 10MB -->
+            <max-request-size>20971520</max-request-size> <!-- 20MB -->
+            <file-size-threshold>0</file-size-threshold> <!-- Luôn lưu vào RAM -->
+        </multipart-config>
     </servlet>
     <servlet-mapping>
         <servlet-name>DisplayImage</servlet-name>
         <url-pattern>/repository/*</url-pattern>
     </servlet-mapping>
+
 
 </web-app>

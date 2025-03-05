@@ -13,17 +13,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AssignmentEntity  extends BaseEntity{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "class_id", nullable = false)
     private ClassEntity classEntity;
 
-    @ManyToOne
-    @JoinColumn(name = "lecturer_id", nullable = false)
-    private LecturerEntity lecturer;
+    @Column(name = "type", nullable = false, length = 255)
+    private String type;
 
     @Column(name = "title", nullable = false, length = 255)
     private String title;
