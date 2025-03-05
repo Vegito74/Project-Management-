@@ -18,6 +18,7 @@ public class TopicAPI{
 
     @Autowired
     private TopicService topicService;
+
     @PutMapping("/{requestId}/approve")
     public ResponseEntity<String> approveRequest(@Valid @PathVariable Integer requestId) {
         topicService.approveRequest(requestId);

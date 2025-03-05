@@ -47,6 +47,12 @@ public class GlobalExceptionHandler {
                 .body(new ResponseData<>(HttpStatus.BAD_REQUEST.value(), errorMessage, null));
     }
 
+    //Không tìm thấy dữ liệu
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ResponseData<String>> handleResourceNotFoundException(ResourceNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(new ResponseData<>(HttpStatus.NOT_FOUND.value(), ex.getMessage(), null));
+    }
     // Xử lý lỗi chung
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ResponseData<String>> handleGlobalException(Exception ex) {
