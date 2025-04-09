@@ -1,11 +1,13 @@
 package com.javaweb.model.dto;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class ClassDTO  extends AbstractDTO{
 
@@ -17,4 +19,7 @@ public class ClassDTO  extends AbstractDTO{
 
     @Size(min = 1, max = 10, message = "Dữ liệu quá dài hoặc không hợp lệ!")
     private String semester;
+
+    @NotBlank(message = "Thiếu thông tin status!")
+    private String status;
 }

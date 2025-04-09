@@ -20,7 +20,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ResponseData<String>> handleValidationException(MethodArgumentNotValidException ex) {
         String errorMessage = ex.getBindingResult().getFieldErrors()
                 .stream().map(FieldError::getDefaultMessage)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.joining("\n"));
 
         return ResponseEntity.badRequest()
                 .body(new ResponseData<>(HttpStatus.BAD_REQUEST.value(), errorMessage, null));
@@ -47,17 +47,20 @@ public class GlobalExceptionHandler {
                 .body(new ResponseData<>(HttpStatus.BAD_REQUEST.value(), errorMessage, null));
     }
 
+
     //Không tìm thấy dữ liệu
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ResponseData<String>> handleResourceNotFoundException(ResourceNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(new ResponseData<>(HttpStatus.NOT_FOUND.value(), ex.getMessage(), null));
     }
-    // Xử lý lỗi chung
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ResponseData<String>> handleGlobalException(Exception ex) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(new ResponseData<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "An unexpected error occurred", null));
-    }
+//    // Xử lý lỗi chung
+//    @ExceptionHandler(Exception.class)
+//    public ResponseEntity<ResponseData<String>> handleGlobalException(Exception ex) {
+//        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+//                .body(new ResponseData<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "An unexpected error occurred", null));
+//    }
+
+
 }
 

@@ -9,10 +9,13 @@
         <pattern>/logout</pattern>
     </excludes>
 
-    <decorator name="web" page="web.jsp">
-       <pattern>/*</pattern>
+<!--    <decorator name="web" page="web.jsp">-->
+<!--       <pattern>/*</pattern>-->
+<!--    </decorator>-->
+
+    <decorator name="student" page="student.jsp">
+        <pattern>/student*</pattern>
     </decorator>
-    
     <decorator name="admin" page="admin.jsp">
        <pattern>/admin*</pattern>
     </decorator>

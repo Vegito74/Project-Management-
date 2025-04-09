@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "submission")
@@ -21,6 +22,9 @@ public class SubmissionEntity {
     @ManyToOne
     @JoinColumn(name = "assignment_id", nullable = false)
     private AssignmentEntity assignment;
+
+    @OneToMany(mappedBy = "classEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<StudentEntity> students;
 
     @ManyToOne
     @JoinColumn(name = "student_id", nullable = false)

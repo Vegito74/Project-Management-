@@ -32,7 +32,15 @@ public class ClassAPI {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new ResponseData<>(HttpStatus.CREATED.value(), "Lớp học được thêm thành công!", classDTO));
     }
+    @DeleteMapping("/{id}/delete")
+    public ResponseEntity<?> deleteBuilding(@PathVariable Integer  id) {
+        classService.deleteClass(id);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(new ResponseData<>(HttpStatus.CREATED .value(),
+                        "Xoá thành công!",
+                        null));
 
+    }
     @PutMapping("/{id}/approve")
     public ResponseEntity<?> approveRequest(@PathVariable("id") Integer id) {
         classRequestService.approveRequest(id);
@@ -42,10 +50,12 @@ public class ClassAPI {
                         null));
 
     }
-
     @PutMapping("/{requestId}/reject")
-    public ResponseEntity<String> rejectRequest( @PathVariable Integer requestId) {
+    public ResponseEntity<?> rejectRequest( @PathVariable Integer requestId) {
         classRequestService.rejectRequest(requestId);
-        return ResponseEntity.ok("Yêu cầu đã bị từ chối!");
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(new ResponseData<>(HttpStatus.CREATED .value(),
+                        "Yêu cầu đã bị từ chối!",
+                        null));
     }
 }

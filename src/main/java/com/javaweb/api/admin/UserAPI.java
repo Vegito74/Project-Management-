@@ -51,6 +51,7 @@ public class UserAPI {
             return ResponseEntity.ok(e.getMessage());
         }
     }
+
     @PutMapping("/password/{id}/reset")
     public ResponseEntity<UserDTO> resetPassword(@PathVariable("id") long id) {
         return ResponseEntity.ok(userService.resetPassword(id));

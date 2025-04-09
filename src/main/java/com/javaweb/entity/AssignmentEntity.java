@@ -1,18 +1,22 @@
 package com.javaweb.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "assignment")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class AssignmentEntity  extends BaseEntity{
+
 
     @ManyToOne
     @JoinColumn(name = "class_id", nullable = false)
@@ -27,8 +31,7 @@ public class AssignmentEntity  extends BaseEntity{
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
-    @Column(name = "due_date", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "due_date")
     private Date dueDate;
 
 

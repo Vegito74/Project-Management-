@@ -1,9 +1,6 @@
 package com.javaweb.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -17,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ClassEntity  extends BaseEntity{
 
+    @ToString.Exclude
     @ManyToOne
     @JoinColumn(name = "lecturer_id", nullable = false)
     private LecturerEntity lecturer;
@@ -26,6 +24,10 @@ public class ClassEntity  extends BaseEntity{
 
     @Column(name = "semester", nullable = false, length = 10)
     private String semester;
+
+    @Column(name = "status")
+    private String status;
+
 
     // Many-to-Many với Student thông qua bảng trung gian class_student
     @ManyToMany

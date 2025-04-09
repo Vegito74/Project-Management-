@@ -33,4 +33,7 @@ public class ClassRequestEntity {
     @Column(name = "status", nullable = false)
     private Status status;
 
+    @Column(name = "message", nullable = false)
+    private String message;
+
 }
