@@ -39,15 +39,12 @@ public class SubmissionServiceImpl implements SubmissionService {
             if (!Files.exists(uploadPath)) {
                 Files.createDirectories(uploadPath);
             }
-
             // Lưu file vào thư mục uploads/
             String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
             Path filePath = uploadPath.resolve(fileName);
             try (InputStream inputStream = file.getInputStream()) {
                 Files.copy(inputStream, filePath);
             }
-
-
             SubmissionEntity submissionEntity = new SubmissionEntity();
             // Cập nhật thông tin file vào submission
             submissionEntity.setStudent(studenRepository.getOne(submission.getStudentId()));

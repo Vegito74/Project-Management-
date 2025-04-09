@@ -29,7 +29,18 @@ public class CustomUserDetailService implements UserDetailsService {
         }
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("ROLE_"+ userDTO.getRole())); // có thể tạo nhiều role cho 1 tài khoản
-        MyUserDetail myUserDetail = new MyUserDetail(name,userDTO.getPassword(),true,true,true,true,authorities);
+        // Tạo đối tượng MyUserDetail và truyền thêm thông tin như fullName và id
+        MyUserDetail myUserDetail = new MyUserDetail(
+                name,
+                userDTO.getPassword(),
+                true,  // enabled
+                true,  // accountNonExpired
+                true,  // credentialsNonExpired
+                true,  // accountNonLocked
+                authorities,
+                userDTO.getId(),  // Truyền id người dùng
+                userDTO.getFullName()  // Truyền fullName
+        );
         BeanUtils.copyProperties(userDTO, myUserDetail);
         return myUserDetail;
     }

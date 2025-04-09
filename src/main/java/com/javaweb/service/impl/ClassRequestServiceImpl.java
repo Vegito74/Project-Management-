@@ -5,13 +5,17 @@ import com.javaweb.entity.ClassRequestEntity;
 import com.javaweb.entity.StudentEntity;
 import com.javaweb.enums.Status;
 import com.javaweb.model.request.StudentRequest;
+import com.javaweb.model.response.ClassRequestResponse;
 import com.javaweb.repository.ClassRepository;
 import com.javaweb.repository.ClassRequestRepository;
 import com.javaweb.repository.StudenRepository;
 import com.javaweb.service.ClassRequestService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -25,6 +29,8 @@ public class ClassRequestServiceImpl implements ClassRequestService {
 
     @Autowired
     private ClassRequestRepository classRequestRepository;
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Override // Lưu yêu cầu gia nhập của sinh viên
     public void createStudentRequest(StudentRequest studentRequest) {
@@ -45,12 +51,10 @@ public class ClassRequestServiceImpl implements ClassRequestService {
         ClassEntity classEntity = classRequestEntity.getClassEntity();
 
         //Thêm sinh viên vào lớp
-        List<StudentEntity> studentEntityList = classEntity.getStudents();
-        studentEntityList.add(classRequestEntity.getStudent());
-        classEntity.setStudents(studentEntityList);
-
+        StudentEntity studentEntity = classRequestEntity.getStudent();
+        studentEntity.setClassEntity(classEntity);
+        studentRepository.save(studentEntity);
         //Lưu kết quả
-        classRepository.save(classEntity);
         classRequestRepository.save(classRequestEntity);
     }
 
@@ -60,6 +64,19 @@ public class ClassRequestServiceImpl implements ClassRequestService {
         classRequestEntity.setStatus(Status.Rejected);
         classRequestRepository.save(classRequestEntity);
 
+
+    }
+
+    @Override
+    public List<ClassRequestResponse> getAllClassRequestsForClass(int classId) {
+        ClassEntity classEntity = classRepository.findById(classId);
+        List<ClassRequestEntity> classRequestEntityList= classRequestRepository.findByClassEntityAndStatus(classEntity, Status.Pending);
+        List<ClassRequestResponse> results =new ArrayList<>();
+        for(ClassRequestEntity classRequestEntity:classRequestEntityList){
+            ClassRequestResponse classRequestResponse = modelMapper.map(classRequestEntity, ClassRequestResponse.class);
+            results.add(classRequestResponse);
+        }
+        return results;
 
     }
 }

@@ -38,12 +38,12 @@ public class UserService implements IUserService {
 
     @Autowired
     private LecturerRepository lecturerRepository;
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Autowired
     private UserConverter userConverter;
-
 
     @Autowired
     private ModelMapper modelMapper;

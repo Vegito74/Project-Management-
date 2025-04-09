@@ -15,7 +15,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TopicEntity extends BaseEntity{
-
     @ManyToOne
     @JoinColumn(name = "student_id", nullable = false)
     private StudentEntity student;
@@ -25,12 +24,9 @@ public class TopicEntity extends BaseEntity{
 
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
-
     @Column(name = "comment", columnDefinition = "TEXT")
     private String comment;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private Status status;
-
 }
