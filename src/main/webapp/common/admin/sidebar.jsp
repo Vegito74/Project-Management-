@@ -110,7 +110,7 @@
                                             Profile
                                         </h2>
                                         <div class="text-xs text-slate-400 line-clamp-1 dark:text-navy-300">
-                                            Your profile setting
+                                            Your profile settinggitig
                                         </div>
                                     </div>
                                 </a>
