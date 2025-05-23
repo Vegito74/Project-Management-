@@ -5,8 +5,13 @@
   Time: 2:38 PM
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/common/taglib.jsp" %>
+
+<head>
+    <title>Giảng viên</title>
+</head>
 <!-- Main Content Wrapper -->
 <main class="main-content w-full px-[var(--margin-x)] pb-8">
     <div class="flex items-center justify-between py-5 lg:py-6">

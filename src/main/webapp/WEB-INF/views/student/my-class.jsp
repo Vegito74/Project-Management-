@@ -9,7 +9,7 @@
 <%@include file="/common/taglib.jsp" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>My Class</title>
 </head>
 <body>
 <!-- Main Content Wrapper -->
@@ -22,30 +22,43 @@
                         <h2 class="font-medium tracking-wide text-slate-700 dark:text-navy-100">
                             Thông tin giảng viên
                         </h2>
-                        <div x-data="usePopper({placement:'bottom-end',offset:4})" @click.outside="isShowPopper &amp;&amp; (isShowPopper = false)" class="inline-flex">
-                            <button x-ref="popperRef" @click="isShowPopper = !isShowPopper" class="btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path>
+                        <div x-data="usePopper({placement:'bottom-end',offset:4})"
+                             @click.outside="isShowPopper &amp;&amp; (isShowPopper = false)" class="inline-flex">
+                            <button x-ref="popperRef" @click="isShowPopper = !isShowPopper"
+                                    class="btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                          d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path>
                                 </svg>
                             </button>
 
-                            <div x-ref="popperRoot" class="popper-root" :class="isShowPopper &amp;&amp; 'show'" style="position: fixed; inset: 0px 0px auto auto; margin: 0px; transform: translate(-78px, 132px);" data-popper-placement="bottom-end">
+                            <div x-ref="popperRoot" class="popper-root" :class="isShowPopper &amp;&amp; 'show'"
+                                 style="position: fixed; inset: 0px 0px auto auto; margin: 0px; transform: translate(-78px, 132px);"
+                                 data-popper-placement="bottom-end">
                                 <div class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700">
                                     <ul>
                                         <li>
-                                            <a href="#" class="flex h-8 items-center px-3 pr-8 font-medium tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100">Action</a>
+                                            <a href="#"
+                                               class="flex h-8 items-center px-3 pr-8 font-medium tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100">Action</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="flex h-8 items-center px-3 pr-8 font-medium tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100">Another Action</a>
+                                            <a href="#"
+                                               class="flex h-8 items-center px-3 pr-8 font-medium tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100">Another
+                                                Action</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="flex h-8 items-center px-3 pr-8 font-medium tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100">Something else</a>
+                                            <a href="#"
+                                               class="flex h-8 items-center px-3 pr-8 font-medium tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100">Something
+                                                else</a>
                                         </li>
                                     </ul>
                                     <div class="my-1 h-px bg-slate-150 dark:bg-navy-500"></div>
                                     <ul>
                                         <li>
-                                            <a href="#" class="flex h-8 items-center px-3 pr-8 font-medium tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100">Separated Link</a>
+                                            <a href="#"
+                                               class="flex h-8 items-center px-3 pr-8 font-medium tracking-wide outline-none transition-all hover:bg-slate-100 hover:text-slate-800 focus:bg-slate-100 focus:text-slate-800 dark:hover:bg-navy-600 dark:hover:text-navy-100 dark:focus:bg-navy-600 dark:focus:text-navy-100">Separated
+                                                Link</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -60,13 +73,13 @@
                             <div>
                                 <p>Class Name</p>
                                 <p class="text-xl font-medium text-slate-700 dark:text-navy-100">
-                                    DCCNTT12.10.2
+                                    ${myProfile.classEntity.className}
                                 </p>
                             </div>
                         </div>
                         <div>
                             <h3 class="text-lg font-medium text-slate-700 dark:text-navy-100">
-                                Nguyễn Văn Trọng
+                                ${myProfile.classEntity.lecturer.user.fullName}
                             </h3>
                             <p class="text-xs text-slate-400 dark:text-navy-300">
                                 Khoa Công nghệ thông tin
@@ -83,19 +96,19 @@
                                 <p class="font-medium text-slate-700 dark:text-navy-100">
                                     Phone
                                 </p>
-                                <p class="text-right">0359538704</p>
+                                <p class="text-right">${myProfile.classEntity.lecturer.user.phone}</p>
                             </div>
                             <div class="flex justify-between">
                                 <p class="font-medium text-slate-700 dark:text-navy-100">
                                     Email
                                 </p>
-                                <p class="text-right">email@email.com</p>
+                                <p class="text-right">${myProfile.classEntity.lecturer.user.email}</p>
                             </div>
                             <div class="flex justify-between">
                                 <p class="font-medium text-slate-700 dark:text-navy-100">
                                     Username
                                 </p>
-                                <p class="text-right">trong123</p>
+                                <p class="text-right">${myProfile.classEntity.lecturer.user.username}</p>
                             </div>
                             <%--<div class="flex justify-between">
                                 <p class="font-medium text-slate-700 dark:text-navy-100">
@@ -111,7 +124,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-base font-semibold text-slate-700 dark:text-navy-100">
-                                    7
+                                    ${myProfile.classEntity.assignmentEntities.size()}
                                 </p>
                                 <p class="text-xs+ line-clamp-1">Nhiệm vụ</p>
                             </div>
@@ -139,7 +152,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-base font-semibold text-slate-700 dark:text-navy-100">
-                                    25
+                                    ${myProfile.classEntity.studentEntities.size()}
                                 </p>
                                 <p class="text-xs+ line-clamp-1">Sinh viên</p>
                             </div>
@@ -227,7 +240,8 @@
             <div class="mt-3 space-y-3.5">
                 <div class="card p-3">
                     <div class="flex items-center space-x-3">
-                        <img class="size-10 rounded-lg object-cover object-center" src="images/illustrations/lms-ui.svg" alt="image">
+                        <img class="size-10 rounded-lg object-cover object-center" src="images/illustrations/lms-ui.svg"
+                             alt="image">
                         <div class="flex-1">
                             <div class="flex justify-between">
                                 <p class="font-medium text-slate-700 dark:text-navy-100">
@@ -237,8 +251,11 @@
                                     Chưa nộp
                                 </div>
                                 <div class="badge space-x-2 bg-slate-150 text-slate-800 dark:bg-navy-500 dark:text-navy-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-4" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd"></path>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-4" viewBox="0 0 20 20"
+                                         fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"
+                                              clip-rule="evenodd"></path>
                                     </svg>
                                     <span>Nộp bài</span>
                                 </div>
@@ -257,38 +274,229 @@
                         <div class="is-active relative w-4/12 overflow-hidden rounded-full bg-primary dark:bg-accent"></div>
                     </div>
                 </div>
-                <div class="card p-3">
-                    <div class="flex items-center space-x-3">
-                        <img class="size-10 rounded-lg object-cover object-center" src="images/illustrations/lms-ui.svg" alt="image">
-                        <div class="flex-1">
-                            <div class="flex justify-between">
-                                <p class="font-medium text-slate-700 dark:text-navy-100">
-                                    Đề cương đồ án
-                                </p>
-                                <div class="badge bg-success/10 text-success dark:bg-success/15">
-                                    Đã nộp
+
+                <c:forEach var="item" items="${myAssignments}">
+                    <div class="card p-3">
+                        <div class="flex items-center space-x-3">
+                            <img class="size-10 rounded-lg object-cover object-center"
+                                 src="images/illustrations/lms-ui.svg" alt="image">
+                            <div class="flex-1">
+                                <div class="flex justify-between">
+                                    <p class="font-medium text-slate-700 dark:text-navy-100">
+                                            ${item.title}
+                                    </p>
+                                        <%--Modal--%>
+                                    <div x-data="{showModal:false}">
+
+                                        <button @click="showModal = true"
+                                                class=" badge space-x-2 bg-slate-150 text-slate-800 dark:bg-navy-500 dark:text-navy-100">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="size-4" viewBox="0 0 20 20"
+                                                 fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"
+                                                      clip-rule="evenodd"></path>
+                                            </svg>
+                                            <span>View </span>
+                                        </button>
+
+
+                                        <template x-teleport="#x-teleport-target">
+                                            <div
+                                                    class="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden px-4 py-6 sm:px-5"
+                                                    x-show="showModal"
+                                                    role="dialog"
+                                                    @keydown.window.escape="showModal = false"
+                                            >
+                                                <div
+                                                        class="absolute inset-0 bg-slate-900/60 transition-opacity duration-300"
+                                                        @click="showModal = false"
+                                                        x-show="showModal"
+                                                        x-transition:enter="ease-out"
+                                                        x-transition:enter-start="opacity-0"
+                                                        x-transition:enter-end="opacity-100"
+                                                        x-transition:leave="ease-in"
+                                                        x-transition:leave-start="opacity-100"
+                                                        x-transition:leave-end="opacity-0"
+                                                ></div>
+                                                <div
+                                                        class="relative w-full max-w-lg origin-top rounded-lg bg-white transition-all duration-300 dark:bg-navy-700"
+                                                        x-show="showModal"
+                                                        x-transition:enter="easy-out"
+                                                        x-transition:enter-start="opacity-0 scale-95"
+                                                        x-transition:enter-end="opacity-100 scale-100"
+                                                        x-transition:leave="easy-in"
+                                                        x-transition:leave-start="opacity-100 scale-100"
+                                                        x-transition:leave-end="opacity-0 scale-95"
+                                                >
+                                                    <div
+                                                            class="flex justify-between rounded-t-lg bg-slate-200 px-4 py-3 dark:bg-navy-800 sm:px-5"
+                                                    >
+                                                        <h3 class="text-base font-medium text-slate-700 dark:text-navy-100">
+                                                            Thông tin bài nộp
+                                                        </h3>
+                                                        <button
+                                                                @click="showModal = !showModal"
+                                                                class="btn -mr-1.5 size-7 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25"
+                                                        >
+                                                            <svg
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    class="size-4.5"
+                                                                    fill="none"
+                                                                    viewBox="0 0 24 24"
+                                                                    stroke="currentColor"
+                                                                    stroke-width="2"
+                                                            >
+                                                                <path
+                                                                        stroke-linecap="round"
+                                                                        stroke-linejoin="round"
+                                                                        d="M6 18L18 6M6 6l12 12"
+                                                                ></path>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                    <div class="px-4 py-4 sm:px-5">
+
+                                                        <div class="mt-4 space-y-4">
+                                                            <div class="space-y-4">
+
+                                                                <div>
+                                                                    <div class="flex justify-between">
+                                                                        <h3 class="text-lg font-medium text-slate-700 dark:text-navy-100">
+                                                                                ${item.title}
+                                                                        </h3>
+                                                                        <div>
+                                                                            <p>Trạng thái</p>
+                                                                            <c:if test="${item.submissionEntity == null}">
+                                                                                <div class=" badge bg-error/10 text-error dark:bg-error/15">
+                                                                                    Chưa nộp
+                                                                                </div>
+
+                                                                            </c:if>
+                                                                            <c:if test="${item.submissionEntity != null}">
+                                                                                <div class="badge bg-success/10 text-success dark:bg-success/15">
+                                                                                    Đã nộp
+                                                                                </div>
+                                                                            </c:if>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="text-xs text-slate-400 dark:text-navy-300">
+                                                                            ${item.description}
+                                                                    </p>
+                                                                </div>
+                                                                <div class="space-y-3 text-xs+">
+                                                                    <div class="flex justify-between">
+                                                                        <p class="font-medium text-slate-700 dark:text-navy-100">
+                                                                            Thời gian tạo:
+                                                                        </p>
+                                                                        <p class="text-right"><fmt:formatDate
+                                                                                value="${item.createdDate}"
+                                                                                pattern="yyyy-MM-dd HH-mm"></fmt:formatDate></p>
+                                                                    </div>
+                                                                    <div class="flex justify-between">
+                                                                        <p class="font-medium text-slate-700 dark:text-navy-100">
+                                                                            Deadline:
+                                                                        </p>
+                                                                        <p class="text-right"><fmt:formatDate
+                                                                                value="${item.dueDate}"
+                                                                                pattern="yyyy-MM-dd HH-mm"></fmt:formatDate></p>
+                                                                    </div>
+                                                                    <c:if test="${item.submissionEntity != null}">
+                                                                        <div class="flex justify-between">
+                                                                            <p class="font-medium text-slate-700 dark:text-navy-100">
+                                                                                File nộp:
+                                                                            </p>
+                                                                            <p class="text-right">
+                                                                                <a target="_blank"
+                                                                                   href="${item.submissionEntity.fileUrl}">${item.submissionEntity.fileUrl}</a>
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="flex justify-between">
+                                                                            <p class="font-medium text-slate-700 dark:text-navy-100">
+                                                                                Thời gian nộp bài:
+                                                                            </p>
+                                                                            <p class="text-right"><fmt:formatDate
+                                                                                    value="${item.submissionEntity.createdDate}"
+                                                                                    pattern="yyyy-MM-dd HH-mm"></fmt:formatDate></p>
+                                                                        </div>
+                                                                         <div class="flex justify-between">
+                                                                            <p class="font-medium text-slate-700 dark:text-navy-100">
+                                                                               Điểm số:
+                                                                            </p>
+                                                                            <p class="text-right">${item.submissionEntity.grade.score}</p>
+                                                                        </div>
+                                                                    </c:if>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="space-x-2 text-right">
+                                                                <button
+                                                                        @click="showModal = false"
+                                                                        class="btn min-w-[7rem] rounded-full border border-slate-300 font-medium text-slate-800 hover:bg-slate-150 focus:bg-slate-150 active:bg-slate-150/80 dark:border-navy-450 dark:text-navy-50 dark:hover:bg-navy-500 dark:focus:bg-navy-500 dark:active:bg-navy-500/90"
+                                                                >
+                                                                    Cancel
+                                                                </button>
+                                                                <button
+                                                                        @click="showModal = false"
+                                                                        class="btn min-w-[7rem] rounded-full bg-primary font-medium text-white hover:bg-primary-focus focus:bg-primary-focus active:bg-primary-focus/90 dark:bg-accent dark:hover:bg-accent-focus dark:focus:bg-accent-focus dark:active:bg-accent/90"
+                                                                >
+                                                                    Apply
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </div>
+
+                                        <%--Modal End--%>
+
                                 </div>
-                                <div class="badge space-x-2 bg-slate-150 text-slate-800 dark:bg-navy-500 dark:text-navy-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-4" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span>Nộp bài</span>
+
+                                <c:if test="${item.submissionEntity == null}">
+                                    <form:form id="form-update${item.id}" method="get">
+                                        <div class=" badge bg-error/10 text-error dark:bg-error/15">
+                                            Chưa nộp
+                                        </div>
+                                        <div class=" filepond fp-bordered">
+                                            <input type="file" id="fileInput-${item.id}"
+                                                   x-init="$el._x_filepond = FilePond.create($el)"
+                                                   multiple/>
+                                        </div>
+                                        <div class="flex justify-center">
+                                            <button type="button" onclick="uploadFile(${item.id}, ${myProfile.id})"
+                                                    class=" btn bg-primary font-medium text-white hover:bg-primary-focus hover:shadow-lg hover:shadow-primary/50 focus:bg-primary-focus focus:shadow-lg focus:shadow-primary/50 active:bg-primary-focus/90 dark:bg-accent dark:hover:bg-accent-focus dark:hover:shadow-accent/50 dark:focus:bg-accent-focus dark:focus:shadow-accent/50 dark:active:bg-accent/90">
+                                                Nộp bài
+                                            </button>
+                                        </div>
+                                    </form:form>
+                                </c:if>
+                                <c:if test="${item.submissionEntity != null}">
+                                    <div class="badge bg-success/10 text-success dark:bg-success/15">
+                                        Đã nộp
+                                    </div>
+                                </c:if>
+
+                                <div class="mt-0.5 flex text-xs text-slate-400 dark:text-navy-300">
+                                    <p>Updated at <fmt:formatDate value="${item.createdDate}"
+                                                                  pattern="yyyy-MM-dd HH:mm"></fmt:formatDate></p>
+                                    <div class="mx-2 my-1 hidden w-px bg-slate-200 dark:bg-navy-500 sm:flex"></div>
+                                    <p class="hidden sm:flex">Deadline: <fmt:formatDate value="${item.dueDate}"
+                                                                                        pattern="yyyy-MM-dd HH:mm"></fmt:formatDate></p>
                                 </div>
-                            </div>
-                            <div class="mt-0.5 flex text-xs text-slate-400 dark:text-navy-300">
-                                <p>Updated at 7 Sep</p>
-                                <div class="mx-2 my-1 hidden w-px bg-slate-200 dark:bg-navy-500 sm:flex"></div>
-                                <p class="hidden sm:flex">Deadline: 2025-04-01</p>
+
                             </div>
                         </div>
+                        <p class="-mt-3 text-right text-xs font-medium text-primary dark:text-accent-light">
+                                ${item.percent}
+                        </p>
+                        <div class="progress mt-2 h-1.5 bg-slate-150 dark:bg-navy-500">
+                            <div class="is-active w-${item.submittedCount} relative  overflow-hidden rounded-full bg-primary dark:bg-accent"></div>
+                        </div>
                     </div>
-                    <p class="-mt-3 text-right text-xs font-medium text-primary dark:text-accent-light">
-                        100%
-                    </p>
-                    <div class="progress mt-2 h-1.5 bg-slate-150 dark:bg-navy-500">
-                        <div class="is-active relative w-full overflow-hidden rounded-full bg-primary dark:bg-accent"></div>
-                    </div>
-                </div>
+                </c:forEach>
+
             </div>
             <!-- Users Table -->
             <%--<div>
@@ -832,7 +1040,7 @@
         </div>
         <div class="col-span-12 lg:col-span-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-1 lg:gap-6">
-                <div class="card p-4">
+                <%--<div class="card p-4">
                     <div class="space-y-1 text-center font-inter text-xs+">
                         <div class="flex items-center justify-between px-2 pb-4">
                             <p class="font-medium text-slate-700 dark:text-navy-100">
@@ -994,11 +1202,11 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div>--%>
                 <div class="card px-4 pb-4 sm:px-5" style="min-height: 500px">
                     <div class="my-3 flex h-8 items-center justify-between">
                         <h2 class="font-medium tracking-wide text-slate-700 line-clamp-1 dark:text-navy-100">
-                            Yêu cầu gia nhập
+                            Thành viên
                         </h2>
 
                         <div x-data="usePopper({placement:'bottom-end',offset:4})"
@@ -1012,7 +1220,7 @@
                                 </svg>
                             </button>
 
-                            <div x-ref="popperRoot" class="popper-root" :class="isShowPopper && 'show'">
+                            <%--<div x-ref="popperRoot" class="popper-root" :class="isShowPopper && 'show'">
                                 <div class="popper-box rounded-md border border-slate-150 bg-white py-1.5 font-inter dark:border-navy-500 dark:bg-navy-700">
                                     <ul>
                                         <li>
@@ -1039,7 +1247,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div>--%>
                         </div>
                     </div>
                     <div class="space-y-4">
@@ -1047,7 +1255,8 @@
                             <table class="w-full text-left text-xs">
                                 <thead>
                                 <tr>
-                                    <th style="width: 20px" class="whitespace-nowrap border border-t-0 border-l-0 border-slate-200 px-3 py-3 font-semibold uppercase text-slate-800 dark:border-navy-500 dark:text-navy-100 lg:px-5">
+                                    <th style="width: 20px"
+                                        class="whitespace-nowrap border border-t-0 border-l-0 border-slate-200 px-3 py-3 font-semibold uppercase text-slate-800 dark:border-navy-500 dark:text-navy-100 lg:px-5">
                                         #
                                     </th>
                                     <th class="whitespace-nowrap border border-t-0 border-slate-200 px-3 py-3 font-semibold uppercase text-slate-800 dark:border-navy-500 dark:text-navy-100 lg:px-5">
@@ -1072,18 +1281,20 @@
                                         DCCNTT12.10.2
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="whitespace-nowrap border border-l-0 border-slate-200 px-3 py-3 dark:border-navy-500 lg:px-5">
-                                        <img class="rounded-full" src="images/avatar/avatar-19.jpg" alt="avatar">
+                                <c:forEach var="item" items="${myProfile.classEntity.studentEntities}">
+                                    <tr>
+                                        <td class="whitespace-nowrap border border-l-0 border-slate-200 px-3 py-3 dark:border-navy-500 lg:px-5">
+                                            <img class="rounded-full" src="images/avatar/avatar-11.jpg" alt="avatar">
 
-                                    </td>
-                                    <td class="whitespace-nowrap border border-slate-200 px-3 py-3 dark:border-navy-500 lg:px-5">
-                                        Trần Văn Nghĩa
-                                    </td>
-                                    <td class="whitespace-nowrap border border-slate-200 px-3 py-3 dark:border-navy-500 lg:px-5">
-                                        DCCNTT12.10.2
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td class="whitespace-nowrap border border-slate-200 px-3 py-3 dark:border-navy-500 lg:px-5">
+                                                ${item.user.fullName}
+                                        </td>
+                                        <td class="whitespace-nowrap border border-slate-200 px-3 py-3 dark:border-navy-500 lg:px-5">
+                                                ${item.classCode}
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -1118,6 +1329,7 @@
             }
         });
     }
+
     //// xoá class
     function reject(id) {
         $.ajax({
@@ -1143,6 +1355,69 @@
 
         });
     }
+
+    function uploadFile(assignmentId, studentId) {
+        var formId = `#form-update` + assignmentId;
+        var formDataObj = $(formId).serializeArray();
+        var data = {};
+
+        $.each(formDataObj, function (index, value) {
+            data[value.name] = value.value;
+        });
+
+        data['assignmentId'] = assignmentId;
+        data['studentId'] = studentId;
+
+        var formData = new FormData();
+        formData.append("jsonData", JSON.stringify(data));
+
+        // Lấy file từ FilePond (nếu dùng FilePond)
+        var pond = FilePond.find(document.querySelector(`#fileInput-` + assignmentId));
+        if (!pond) {
+            toastr.warning("Không tìm thấy FilePond instance.", 'Lỗi hệ thống');
+            return;
+        }
+
+        var files = pond.getFiles();
+
+        if (!files || files.length === 0) {
+            toastr.warning("Vui lòng chọn file trước khi nộp.", 'Thiếu file');
+            return;
+        }
+
+        formData.append("file", files[0].file);
+
+        $.ajax({
+            type: "POST",
+            url: "/api/submission",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                toastr.success("Lưu thành công!", 'Success', {
+                    closeButton: true,
+                    progressBar: true,
+                    timeOut: 1500,
+                });
+                setTimeout(function () {
+                    window.location.href = `/student/my-class`;
+                }, 2000);
+            },
+            error: function (response) {
+                var errorMessage = 'File không hợp lệ hoặc kích thước quá lớn (>10MB)!';
+                toastr.warning(errorMessage, 'Xảy ra lỗi', {
+                    positionClass: 'toast-top-center',
+                    timeOut: 10000,
+                    closeButton: true,
+                    progressBar: true,
+                    newestOnTop: true
+                });
+                console.log(response.message);
+            }
+        });
+    }
+
+
 </script>
 </body>
 

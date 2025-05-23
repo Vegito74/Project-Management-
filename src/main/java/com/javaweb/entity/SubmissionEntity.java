@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SubmissionEntity {
+public class SubmissionEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -23,9 +23,6 @@ public class SubmissionEntity {
     @JoinColumn(name = "assignment_id", nullable = false)
     private AssignmentEntity assignment;
 
-    @OneToMany(mappedBy = "classEntity", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<StudentEntity> students;
-
     @ManyToOne
     @JoinColumn(name = "student_id", nullable = false)
     private StudentEntity student;
@@ -33,6 +30,10 @@ public class SubmissionEntity {
     @Column(name = "file_url", nullable = false, length = 255)
     private String fileUrl;
 
+    @Column(name = "file_name", nullable = false, length = 255)
+    private String fileName;
+    @Column(name = "file_type", nullable = false, length = 255)
+    private String file_type;
     @Column(name = "submitted_date", updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date submittedDate;
@@ -41,5 +42,6 @@ public class SubmissionEntity {
     @Column(name = "status", nullable = false)
     private SubmissionStatus status;
 
-
+    @OneToOne(mappedBy = "submission", cascade = CascadeType.ALL)
+    private GradeEntity grade;
 }

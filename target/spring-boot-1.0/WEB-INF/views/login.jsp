@@ -47,6 +47,11 @@
 							Session Timeout
 					</div>
 				</c:if>
+				<c:if test="${param.sessionTimeout != null}">
+					<div class="alert alert-danger text-center" style="text-align: center; ">
+							Session Timeout
+					</div>
+				</c:if>
 				<label class="block mt-5" >
 					<span>Username:</span>
 					<span class="relative mt-1.5 flex">

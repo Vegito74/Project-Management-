@@ -14,18 +14,17 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClassRequestEntity {
+public class ClassRequestEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull(message = "Class không hợp lệ")
     @ManyToOne
     @JoinColumn(name = "class_id", nullable = false)
     private ClassEntity classEntity;
 
-    @NotNull(message = "Sinh viên không hợp lệ")
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "student_id", nullable = false)
     private StudentEntity student;
 

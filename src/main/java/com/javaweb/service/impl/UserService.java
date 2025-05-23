@@ -94,7 +94,7 @@ public class UserService implements IUserService {
     public UserDTO insert(UserDTO newUser) {
         UserEntity userEntity = userConverter.convertToEntity(newUser);
         userRepository.save(userEntity);
-        if(userEntity.getRole().equals(Role.STUDENT.name())){
+        if(userEntity.getRole().name().equals("STUDENT")){
             StudentEntity studentEntity = modelMapper.map(newUser, StudentEntity.class);
             studentEntity.setUser(userEntity);
             studenRepository.save(studentEntity);
@@ -110,7 +110,7 @@ public class UserService implements IUserService {
     }
     @Override
     @Transactional
-    public UserDTO update(Long id, UserDTO updateUser) {
+    public UserDTO update(Integer id, UserDTO updateUser) {
         UserEntity oldUser = userRepository.findById(id).get();
         UserEntity userEntity = userConverter.convertToEntity(updateUser);
         userEntity.setUsername(oldUser.getUsername());
@@ -121,7 +121,7 @@ public class UserService implements IUserService {
     }
     @Override
     @Transactional
-    public void updatePassword(long id, PasswordDTO passwordDTO) throws MyException {
+    public void updatePassword(Integer id, PasswordDTO passwordDTO) throws MyException {
         UserEntity user = userRepository.findById(id).get();
         if (passwordEncoder.matches(passwordDTO.getOldPassword(), user.getPassword())
                 && passwordDTO.getNewPassword().equals(passwordDTO.getConfirmPassword())) {
@@ -134,7 +134,7 @@ public class UserService implements IUserService {
 
     @Override
     @Transactional
-    public UserDTO resetPassword(long id) {
+    public UserDTO resetPassword(Integer id) {
         UserEntity userEntity = userRepository.findById(id).get();
         userEntity.setPassword(passwordEncoder.encode(SystemConstant.PASSWORD_DEFAULT));
         return userConverter.convertToDto(userRepository.save(userEntity));
@@ -151,8 +151,8 @@ public class UserService implements IUserService {
 
     @Override
     @Transactional
-    public void delete(long[] ids) {
-        for (Long item : ids) {
+    public void delete(Integer[] ids) {
+        for (Integer item : ids) {
             UserEntity userEntity = userRepository.findById(item).get();
             userEntity.setStatus(0);
             userRepository.save(userEntity);

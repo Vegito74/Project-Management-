@@ -12,11 +12,11 @@ public interface IUserService {
     List<UserDTO> getUsers(String searchValue, Pageable pageable);
 
     UserDTO insert(UserDTO userDTO);
-    UserDTO update(Long id, UserDTO userDTO);
-    void updatePassword(long id, PasswordDTO userDTO) throws MyException;
-    UserDTO resetPassword(long id);
+    UserDTO update(Integer id, UserDTO userDTO);
+    void updatePassword(Integer id, PasswordDTO userDTO) throws MyException;
+    UserDTO resetPassword(Integer id);
     UserDTO updateProfileOfUser(String id, UserDTO userDTO);
-    void delete(long[] ids);
+    void delete(Integer[] ids);
 //    ResponseDTO listStaff(Long buildingId);
     List<UserDTO> getAllUsers(Pageable pageable);
     int countTotalItems();

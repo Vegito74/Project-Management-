@@ -94,7 +94,7 @@
                                                 <div class="px-4 py-4 sm:px-5">
                                                     <div class="mt-4 space-y-4">
                                                         <!-- Hidden input để lưu id giảng viên -->
-                                                        <input type="hidden" id="lecturerId" name="lecturerId" value="<%=SecurityUtils.getPrincipal().getId()%>"/>
+                                                        <input type="hidden" id="lecturerId" name="lecturerId" value="${lecturer.id}"/>
                                                         <label class="block">
                                                             <span>Giảng viên</span>:</span>
                                                             <input
@@ -104,7 +104,7 @@
                                                                     id="lecturerName"
                                                                     name="lecturerName"
                                                                     type="text"
-                                                                    value="<%=SecurityUtils.getPrincipal().getFullName()%>"
+                                                                    value="${lecturer.id}"
                                                             />
                                                         </label>
                                                         <label class="block">

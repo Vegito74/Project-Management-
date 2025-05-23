@@ -38,11 +38,11 @@ public class UserAPI {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserDTO> updateUsers(@PathVariable("id") long id, @RequestBody UserDTO userDTO) {
+    public ResponseEntity<UserDTO> updateUsers(@PathVariable("id") Integer id, @RequestBody UserDTO userDTO) {
         return ResponseEntity.ok(userService.update(id, userDTO));
     }
     @PutMapping("/change-password/{id}")
-    public ResponseEntity<String> changePasswordUser(@PathVariable("id") long id, @RequestBody PasswordDTO passwordDTO) {
+    public ResponseEntity<String> changePasswordUser(@PathVariable("id") Integer id, @RequestBody PasswordDTO passwordDTO) {
         try {
             userService.updatePassword(id, passwordDTO);
             return ResponseEntity.ok(SystemConstant.UPDATE_SUCCESS);
@@ -53,7 +53,7 @@ public class UserAPI {
     }
 
     @PutMapping("/password/{id}/reset")
-    public ResponseEntity<UserDTO> resetPassword(@PathVariable("id") long id) {
+    public ResponseEntity<UserDTO> resetPassword(@PathVariable("id") Integer id) {
         return ResponseEntity.ok(userService.resetPassword(id));
     }
 
@@ -63,7 +63,7 @@ public class UserAPI {
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> deleteUsers(@RequestBody long[] idList) {
+    public ResponseEntity<Void> deleteUsers(@RequestBody Integer[] idList) {
         if (idList.length > 0) {
             userService.delete(idList);
         }

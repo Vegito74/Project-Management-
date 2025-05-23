@@ -24,7 +24,7 @@ public class GradeAPI {
    private GradeService gradeService;
 
     @PostMapping
-    public ResponseEntity<?> createUser(@Valid @RequestBody GradeDTO newAssess) {
+    public ResponseEntity<?> addScore(@Valid @RequestBody GradeDTO newAssess) {
         log.info("Creating new Assess: {}", newAssess.getSubmissionId());
         GradeDTO gradeDTO = gradeService.assessSubmission(newAssess);
         return ResponseEntity.status(HttpStatus.CREATED)

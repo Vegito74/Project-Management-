@@ -45,4 +45,13 @@ public class StudentRequestAPI {
                         newTopic));
     }
 
+    @DeleteMapping("/delete-{id}")
+    public ResponseEntity<ResponseData<?>> deleteRegister(@PathVariable("id") Integer id) {
+        classRequestService.deleteStudentRequest(id);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(new ResponseData<>(HttpStatus.CREATED.value(),
+                        "Xoá yêu cầu thành công!",
+                        null));
+    }
+
 }

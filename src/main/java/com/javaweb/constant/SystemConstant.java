@@ -6,7 +6,7 @@ public class SystemConstant {
     public static final String ADMIN_ROLE = "ROLE_ADMIN";
     /*Spring security 4: ROLE_ADMIN, Spring security 3 not required*/
 
-    public static final String LECTURER_ROLE = "LECTURER_ROLE";
+    public static final String LECTURER_ROLE = "ROLE_LECTURER";
     public static final String STUDENT_ROLE = "ROLE_STUDENT";
     public static final String USER_ROLE = "ROLE_USER";
     public static final String MANAGER_ROLE = "ROLE_MANAGER";

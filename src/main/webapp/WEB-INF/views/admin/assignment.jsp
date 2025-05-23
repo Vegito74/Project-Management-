@@ -40,25 +40,25 @@
                     class="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden px-4 py-6 sm:px-5"
                     x-show="showModal"
                     role="dialog"
-                    @keydown.window.escape="showModal = false" >
+                    @keydown.window.escape="showModal = false">
                 <div class="absolute inset-0 bg-slate-900/60 transition-opacity duration-300"
-                        @click="showModal = false"
-                        x-show="showModal"
-                        x-transition:enter="ease-out"
-                        x-transition:enter-start="opacity-0"
-                        x-transition:enter-end="opacity-100"
-                        x-transition:leave="ease-in"
-                        x-transition:leave-start="opacity-100"
-                        x-transition:leave-end="opacity-0"></div>
+                     @click="showModal = false"
+                     x-show="showModal"
+                     x-transition:enter="ease-out"
+                     x-transition:enter-start="opacity-0"
+                     x-transition:enter-end="opacity-100"
+                     x-transition:leave="ease-in"
+                     x-transition:leave-start="opacity-100"
+                     x-transition:leave-end="opacity-0"></div>
                 <div class="relative w-full max-w-lg origin-top rounded-lg bg-white transition-all duration-300 dark:bg-navy-700"
-                        x-show="showModal"
-                        x-transition:enter="easy-out"
-                        x-transition:enter-start="opacity-0 scale-95"
-                        x-transition:enter-end="opacity-100 scale-100"
-                        x-transition:leave="easy-in"
-                        x-transition:leave-start="opacity-100 scale-100"
-                        x-transition:leave-end="opacity-0 scale-95">
-                    <form:form modelAttribute="model"  id="form-add" method="GET" >
+                     x-show="showModal"
+                     x-transition:enter="easy-out"
+                     x-transition:enter-start="opacity-0 scale-95"
+                     x-transition:enter-end="opacity-100 scale-100"
+                     x-transition:leave="easy-in"
+                     x-transition:leave-start="opacity-100 scale-100"
+                     x-transition:leave-end="opacity-0 scale-95">
+                    <form:form modelAttribute="model" id="form-add" method="GET">
                     <div class="flex justify-between rounded-t-lg bg-slate-200 px-4 py-3 dark:bg-navy-800 sm:px-5">
                         <h3 class="text-base font-medium text-slate-700 dark:text-navy-100">
                             Thêm công việc cần làm
@@ -83,7 +83,7 @@
                             </svg>
                         </button>
                     </div>
-                     <!-- Hidden input để lưu id giảng viên -->
+                    <!-- Hidden input để lưu id giảng viên -->
                     <input type="hidden" id="classId" name="classId" value="${classId}"/>
                     <div class="px-4 py-4 sm:px-5">
                         <p>
@@ -92,17 +92,18 @@
                         <div class="mt-4 space-y-4">
                             <label class="block">
                                 <span>Tên công việc</span>
-                                <input  name="title" id="title"
-                                        class="form-input mt-1.5 w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
-                                        placeholder="Nhập tên công việc"
-                                        type="text"
+                                <input name="title" id="title"
+                                       class="form-input mt-1.5 w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
+                                       placeholder="Nhập tên công việc"
+                                       type="text"
                                 />
                             </label>
                             <label class="block">
                                 <span>Loại công việc:</span>
-                                <form:select class="form-select mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 hover:border-slate-400 focus:border-primary dark:border-navy-450 dark:bg-navy-700 dark:hover:border-navy-400 dark:focus:border-accent"
-                                 path="type">
-                                    <form:options items="${AssignmentType}" itemValue="name" itemLabel="name" />
+                                <form:select
+                                        class="form-select mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 hover:border-slate-400 focus:border-primary dark:border-navy-450 dark:bg-navy-700 dark:hover:border-navy-400 dark:focus:border-accent"
+                                        path="type">
+                                    <form:options items="${AssignmentType}" itemValue="name" itemLabel="name"/>
                                 </form:select>
                             </label>
                             <label class="block">
@@ -116,28 +117,28 @@
                                 ></textarea>
                             </label>
                             <label class="block">
-                            <span>Hạn nộp đến:</span>
-                            <label class="relative flex">
-                                <input
-                                        id="dueDate" name="dueDate"
-                                        x-init="$el._x_flatpickr = flatpickr($el,{enableTime: true})"
-                                        class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
-                                        placeholder="Choose datetime..."
-                                        type="text"
-                                />
-                                <span class="pointer-events-none absolute flex h-full w-10 items-center justify-center text-slate-400 peer-focus:text-primary dark:text-navy-300 dark:peer-focus:text-accent">
+                                <span>Hạn nộp đến:</span>
+                                <label class="relative flex">
+                                    <input
+                                            id="dueDate" name="dueDate"
+                                            x-init="$el._x_flatpickr = flatpickr($el,{enableTime: true})"
+                                            class="form-input peer w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 pl-9 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
+                                            placeholder="Choose datetime..."
+                                            type="text"
+                                    />
+                                    <span class="pointer-events-none absolute flex h-full w-10 items-center justify-center text-slate-400 peer-focus:text-primary dark:text-navy-300 dark:peer-focus:text-accent">
                                     <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="size-5"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                            stroke-width="1.5">
+                                         class="size-5"
+                                         fill="none"
+                                         viewBox="0 0 24 24"
+                                         stroke="currentColor"
+                                         stroke-width="1.5">
                                     <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                                     </svg>
                                  </span>
 
-                            </label>
+                                </label>
                             </label>
                             </form:form>
                             <div class="space-x-2 text-right">
@@ -165,60 +166,49 @@
             </div>
         </template>
     </div>
-     <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4">
-            <c:forEach var="item" items="${assignmentList}">
-                <div class="card shadow-none">
-                    <div class="flex flex-1 flex-col justify-between rounded-lg bg-info/15 p-4 dark:bg-transparent sm:p-5">
-                        <div>
-                            <div class="flex items-start justify-between">
-                                <img class="size-12 rounded-lg object-cover object-center"
-                                     src="images/others/design-sm.jpg" alt="image">
-                                <p class="text-xs+">${item.createdDate}</p>
-                            </div>
-                            <h3 class="mt-3 font-medium text-slate-700 line-clamp-2 dark:text-navy-100">
-                                Báo cáo tiến độ lần 3
-                            </h3>
-                            <p class="text-xs+">${item.description}</p>
+    <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4">
+        <c:forEach var="item" items="${assignmentList}">
+            <div class="card shadow-none">
+                <div class="flex flex-1 flex-col justify-between rounded-lg bg-info/15 p-4 dark:bg-transparent sm:p-5">
+                    <div>
+                        <div class="flex items-start justify-between">
+                            <img class="size-12 rounded-lg object-cover object-center"
+                                 src="images/others/design-sm.jpg" alt="image">
+                            <p class="text-xs+">   <fmt:formatDate value="${item.createdDate}" pattern="yyyy-MM-dd HH:mm"/></p>
                         </div>
-                        <div>
-                            <div class="mt-4">
-                                <p class="text-xs+ text-slate-700 dark:text-navy-100">
-                                    Đã hoàn thành
+                        <h3 class="mt-3 font-medium text-slate-700 line-clamp-2 dark:text-navy-100">
+                            Báo cáo tiến độ lần 3
+                        </h3>
+                        <p class="text-xs+">${item.description}</p>
+                    </div>
+                    <div>
+                        <div class="mt-4">
+                            <p class="text-xs+ text-slate-700 dark:text-navy-100">
+                                Đã hoàn thành
+                            </p>
+                            <div class="progress my-2 h-1.5 bg-info/15 dark:bg-info/25">
+                                <div class="w-${item.submittedCount} rounded-full bg-info"></div>
+                            </div>
+                            <p class="text-right text-xs+ font-medium text-info">${item.percent}</p>
+                        </div>
+                        <div class="mt-5 flex flex-wrap -space-x-3">
+                            <p class="text-xs+ text-slate-700 dark:text-navy-100">
+                                Thành viên đã nộp bài: ${item.submittedCount}
+                            </p>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between space-x-2">
+                            <div class="flex items-start">
+                                <p class="mr-1 text-xs+ text-slate-700 dark:text-navy-100">
+                                    Hạn nộp bài đến:
                                 </p>
-                                <div class="progress my-2 h-1.5 bg-info/15 dark:bg-info/25">
-                                    <div class="w-${item.submittedCount} rounded-full bg-info"></div>
-                                </div>
-                                <p class="text-right text-xs+ font-medium text-info">${item.percent}</p>
-                            </div>
-                            <div class="mt-5 flex flex-wrap -space-x-3">
-                                <div class="avatar size-8 hover:z-10">
-                                    <img class="rounded-full border-2 border-white dark:border-navy-700"
-                                         src="images/avatar/avatar-13.jpg" alt="avatar">
-                                </div>
-
-                                <div class="avatar size-8 hover:z-10">
-                                    <div class="is-initial rounded-full border-2 border-white bg-warning text-xs+ uppercase text-white dark:border-navy-700">
-                                        ii
-                                    </div>
-                                </div>
-
-                                <div class="avatar size-8 hover:z-10">
-                                    <img class="rounded-full border-2 border-white dark:border-navy-700"
-                                         src="images/avatar/avatar-12.jpg" alt="avatar">
-                                </div>
-
-                                <div class="avatar size-8 hover:z-10">
-                                    <img class="rounded-full border-2 border-white dark:border-navy-700"
-                                         src="images/avatar/avatar-11.jpg" alt="avatar">
-                                </div>
-                            </div>
-
-                            <div class="mt-4 flex items-center justify-between space-x-2">
                                 <div class="badge h-5.5 rounded-full bg-info px-2 text-xs+ text-white">
                                     <fmt:formatDate value="${item.dueDate}" pattern="yyyy-MM-dd HH:mm"/>
                                 </div>
-                                <div>
-                                    <button class="btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
+                            </div>
+                            <div>
+                                <div x-data="{showModal:false}">
+                                    <a type="button" href="/admin/assignment-single-${item.id}" class="btn -mr-1.5 size-8 rounded-full p-0 hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none"
                                              viewbox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -226,30 +216,94 @@
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                   d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                         </svg>
+                                    </a>
+
+                                    <button @click="showModal = true"
+                                            class="btn size-9 p-0 font-medium text-error hover:bg-error/20 focus:bg-error/20 active:bg-error/25">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             class="size-5"
+                                             fill="none"
+                                             viewBox="0 0 24 24"
+                                             stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                        </svg>
                                     </button>
-                                    <button onclick="deleteAssignment(${item.id})" class="btn size-9 p-0 font-medium text-error hover:bg-error/20 focus:bg-error/20 active:bg-error/25">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 class="size-5"
-                                 fill="none"
-                                 viewBox="0 0 24 24"
-                                 stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                            </svg>
-                        </button>
+                                    <template x-teleport="#x-teleport-target">
+                                        <div
+                                                class="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden px-4 py-6 sm:px-5"
+                                                x-show="showModal"
+                                                role="dialog"
+                                                @keydown.window.escape="showModal = false"
+                                        >
+                                            <div
+                                                    class="absolute inset-0 bg-slate-900/60 backdrop-blur transition-opacity duration-300"
+                                                    @click="showModal = false"
+                                                    x-show="showModal"
+                                                    x-transition:enter="ease-out"
+                                                    x-transition:enter-start="opacity-0"
+                                                    x-transition:enter-end="opacity-100"
+                                                    x-transition:leave="ease-in"
+                                                    x-transition:leave-start="opacity-100"
+                                                    x-transition:leave-end="opacity-0"
+                                            ></div>
+                                            <div
+                                                    class="relative max-w-lg rounded-lg bg-white px-4 py-10 text-center transition-opacity duration-300 dark:bg-navy-700 sm:px-5"
+                                                    x-show="showModal"
+                                                    x-transition:enter="ease-out"
+                                                    x-transition:enter-start="opacity-0"
+                                                    x-transition:enter-end="opacity-100"
+                                                    x-transition:leave="ease-in"
+                                                    x-transition:leave-start="opacity-100"
+                                                    x-transition:leave-end="opacity-0"
+                                            >
+                                                <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        class="inline size-28 text-success"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                >
+                                                    <path
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                    ></path>
+                                                </svg>
+
+                                                <div class="mt-4">
+                                                    <h2 class="text-2xl text-slate-700 dark:text-navy-100">
+                                                        Bạn có chắc chắn muốn xoá nhiệm vụ "${item.title}" không?
+                                                    </h2>
+                                                    <p class="mt-2">
+                                                        Nếu xoá toàn bộ dữ liệu liên quan sẽ biến mất.
+                                                    </p>
+                                                    <button @click="showModal = false"
+                                                            class="btn bg-slate-150 font-medium text-slate-800 hover:bg-slate-200 focus:bg-slate-200 active:bg-slate-200/80 dark:bg-navy-500 dark:text-navy-50 dark:hover:bg-navy-450 dark:focus:bg-navy-450 dark:active:bg-navy-450/90"
+
+                                                    >
+                                                        Huỷ thao tác
+                                                    </button>
+                                                    <button onclick="deleteAssignment(${item.id})"
+                                                            @click="showModal = false"
+                                                            class="ml-4 btn mt-6 bg-success font-medium text-white hover:bg-success-focus focus:bg-success-focus active:bg-success-focus/90">
+                                                        Xoá
+                                                    </button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </template>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </c:forEach>
+            </div>
+        </c:forEach>
 
-        </div>
-
-
-
-
-
+    </div>
 
 
 </main>
@@ -260,7 +314,7 @@
         var data = {};
         var formData = $('#form-add').serializeArray();
         $.each(formData, function (index, value) {
-            data["" + value.name + ""] = value.value ;
+            data["" + value.name + ""] = value.value;
         });
         //Call api
         $.ajax({

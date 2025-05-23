@@ -40,7 +40,7 @@
                 </a>
 
                <!-- Forms -->
-                <a href="/admin/file-manage" class="flex size-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25" x-tooltip.placement.right="'Forms'">
+                <a href="/admin/topic_manager" class="flex size-11 items-center justify-center rounded-lg outline-none transition-colors duration-200 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/25 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25" x-tooltip.placement.right="'Quản lý đề tài'">
                     <svg class="size-7" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-opacity="0.25" d="M21.0001 16.05V18.75C21.0001 20.1 20.1001 21 18.7501 21H6.6001C6.9691 21 7.3471 20.946 7.6981 20.829C7.7971 20.793 7.89609 20.757 7.99509 20.712C8.31009 20.586 8.61611 20.406 8.88611 20.172C8.96711 20.109 9.05711 20.028 9.13811 19.947L9.17409 19.911L15.2941 13.8H18.7501C20.1001 13.8 21.0001 14.7 21.0001 16.05Z" fill="currentColor"></path>
                         <path fill-opacity="0.5" d="M17.7324 11.361L15.2934 13.8L9.17334 19.9111C9.80333 19.2631 10.1993 18.372 10.1993 17.4V8.70601L12.6384 6.26701C13.5924 5.31301 14.8704 5.31301 15.8244 6.26701L17.7324 8.17501C18.6864 9.12901 18.6864 10.407 17.7324 11.361Z" fill="currentColor"></path>
@@ -91,21 +91,20 @@
                                 </div>
                                 <div>
                                     <a href="#" class="text-base font-medium text-slate-700 hover:text-primary focus:text-primary dark:text-navy-100 dark:hover:text-accent-light dark:focus:text-accent-light">
-                                        NVT
+
                                     </a>
                                     <p class="text-xs text-slate-400 dark:text-navy-300">
-                                        Full-Stack Developer
+                                        Công nghệ thông tin
                                     </p>
                                 </div>
                             </div>
                             <div class="flex flex-col pt-2 pb-5">
-                                <a href="#" class="group flex items-center space-x-3 py-2 px-4 tracking-wide outline-none transition-all hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-navy-600 dark:focus:bg-navy-600">
+                                <a href="/admin/my-profile" class="group flex items-center space-x-3 py-2 px-4 tracking-wide outline-none transition-all hover:bg-slate-100 focus:bg-slate-100 dark:hover:bg-navy-600 dark:focus:bg-navy-600">
                                     <div class="flex size-8 items-center justify-center rounded-lg bg-warning text-white">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="size-4.5" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                                         </svg>
                                     </div>
-
                                     <div>
                                         <h2 class="font-medium text-slate-700 transition-colors group-hover:text-primary group-focus:text-primary dark:text-navy-100 dark:group-hover:text-accent-light dark:group-focus:text-accent-light">
                                             Profile
@@ -291,4 +290,111 @@
             </div>
         </div>
     </div>--%>
+    <!-- Sidebar Panel -->
+    <div class="sidebar-panel">
+        <div class="flex h-full grow flex-col bg-white pl-[var(--main-sidebar-width)] dark:bg-navy-750">
+            <!-- Sidebar Panel Header -->
+            <div class="flex h-18 w-full items-center justify-between pl-4 pr-1">
+                <p class="text-base tracking-wider text-slate-800 dark:text-navy-100">
+                    Dashboards
+                </p>
+                <button @click="$store.global.isSidebarExpanded = false" class="btn size-7 rounded-full p-0 text-primary hover:bg-slate-300/20 focus:bg-slate-300/20 active:bg-slate-300/25 dark:text-accent-light/80 dark:hover:bg-navy-300/20 dark:focus:bg-navy-300/20 dark:active:bg-navy-300/25 xl:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Sidebar Panel Body -->
+            <div x-data="{expandedItem:null}" class="h-[calc(100%-4.5rem)] overflow-x-hidden pb-6" x-init="$el._x_simplebar = new SimpleBar($el);">
+                <ul class="flex flex-1 flex-col px-4 font-inter">
+                    <li>
+                        <a x-data="navLink" href="/admin/home" :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'" class="flex py-2 text-xs+ tracking-wide outline-none transition-colors duration-300 ease-in-out">
+                            Trang chủ
+                        </a>
+                    </li>
+
+                </ul>
+                <div class="my-3 mx-4 h-px bg-slate-200 dark:bg-navy-500"></div>
+                <ul class="flex flex-1 flex-col px-4 font-inter">
+                    <%--<li x-data="accordionItem('menu-item-1')">
+                        <a :class="expanded ? 'text-slate-800 font-semibold dark:text-navy-50' : 'text-slate-600 dark:text-navy-200  hover:text-slate-800  dark:hover:text-navy-50'" @click="expanded = !expanded" class="flex items-center justify-between py-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out" href="javascript:void(0);">
+                            <span>Cryptocurrency</span>
+                            <svg :class="expanded && 'rotate-90'" xmlns="http://www.w3.org/2000/svg" class="size-4 text-slate-400 transition-transform ease-in-out" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                        <ul x-collapse="" x-show="expanded">
+                            <li>
+                                <a x-data="navLink" href="dashboards-crypto-1.html" :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'" class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="size-1.5 rounded-full border border-current opacity-40"></div>
+                                        <span>Cryptocurrency v1</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a x-data="navLink" href="dashboards-crypto-2.html" :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'" class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="size-1.5 rounded-full border border-current opacity-40"></div>
+                                        <span>Cryptocurrency v2</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li x-data="accordionItem('menu-item-2')">
+                        <a :class="expanded ? 'text-slate-800 font-semibold dark:text-navy-50' : 'text-slate-600 dark:text-navy-200  hover:text-slate-800  dark:hover:text-navy-50'" @click="expanded = !expanded" class="flex items-center justify-between py-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out" href="javascript:void(0);">
+                            <span>Banking</span>
+                            <svg :class="expanded && 'rotate-90'" xmlns="http://www.w3.org/2000/svg" class="size-4 text-slate-400 transition-transform ease-in-out" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                        <ul x-collapse="" x-show="expanded">
+                            <li>
+                                <a x-data="navLink" href="dashboards-banking-1.html" :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'" class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="size-1.5 rounded-full border border-current opacity-40"></div>
+                                        <span>Banking v1</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a x-data="navLink" href="dashboards-banking-2.html" :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'" class="flex items-center justify-between p-2 text-xs+ tracking-wide outline-none transition-[color,padding-left] duration-300 ease-in-out hover:pl-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="size-1.5 rounded-full border border-current opacity-40"></div>
+                                        <span>Banking v2</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>--%>
+                    <li>
+                        <a x-data="navLink" href="/admin/class-list" :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'" class="flex py-2 text-xs+ tracking-wide outline-none transition-colors duration-300 ease-in-out">
+                            Lớp học
+                        </a>
+                    </li>
+                    <li>
+                        <a x-data="navLink" href="/admin/topic_manager" :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'" class="flex py-2 text-xs+ tracking-wide outline-none transition-colors duration-300 ease-in-out">
+                            Quản lý đề tài
+                        </a>
+                    </li>
+                </ul>
+                <div class="my-3 mx-4 h-px bg-slate-200 dark:bg-navy-500"></div>
+                <ul class="flex flex-1 flex-col px-4 font-inter">
+                    <li>
+                        <a x-data="navLink" href="/admin/student-manager" :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'" class="flex py-2 text-xs+ tracking-wide outline-none transition-colors duration-300 ease-in-out">
+                           Quản lý sinh viên
+                        </a>
+                    </li>
+                    <li>
+                        <a x-data="navLink" href="/admin/my-profile" :class="isActive ? 'font-medium text-primary dark:text-accent-light' : 'text-slate-600 hover:text-slate-900 dark:text-navy-200 dark:hover:text-navy-50'" class="flex py-2 text-xs+ tracking-wide outline-none transition-colors duration-300 ease-in-out">
+                            Profile
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>

@@ -16,6 +16,11 @@ public class StudentEntity extends BaseEntity {
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private UserEntity user;
 
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TopicEntity> topicEntities;
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SubmissionEntity> submissionEntities;
+
     @ToString.Exclude
     @ManyToOne
     @JoinColumn(name = "class_id", nullable = false, unique = true)

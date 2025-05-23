@@ -16,8 +16,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AssignmentEntity  extends BaseEntity{
-
-
     @ManyToOne
     @JoinColumn(name = "class_id", nullable = false)
     private ClassEntity classEntity;
@@ -34,5 +32,7 @@ public class AssignmentEntity  extends BaseEntity{
     @Column(name = "due_date")
     private Date dueDate;
 
+    @OneToMany(mappedBy = "assignment", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SubmissionEntity> submissions;
 
 }

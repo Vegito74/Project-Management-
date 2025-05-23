@@ -11,4 +11,7 @@ public interface StudenRepository extends JpaRepository<StudentEntity, Integer>{
     long countByClassEntityId(Integer classId);
     List<StudentEntity> findAllByClassEntity(ClassEntity classEntity);
     int countStudentByClassEntityId(Integer classId);
+    StudentEntity findStudentEntityById(Integer studentId);
+    StudentEntity getStudentEntityByUser(UserEntity user);
+
 }

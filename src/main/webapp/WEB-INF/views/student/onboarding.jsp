@@ -9,13 +9,13 @@
 <%@include file="/common/taglib.jsp" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Trang chủ</title>
 </head>
 <body>
 <!-- Main Content Wrapper -->
 <main class="main-content w-full place-items-center px-[var(--margin-x)] pb-12">
     <div class="py-5 text-center lg:py-6">
-        <p class="text-sm uppercase"> Welcome! Bạn đang là tài khoản mới</p>
+        <p class="text-sm uppercase"> Welcome! Bạn đã đăng nhập với role STUDENT</p>
         <h3 class="mt-1 text-xl font-semibold text-slate-600 dark:text-navy-100">
             Hãy hoàn tất các công việc dưới đây!
         </h3>
@@ -49,7 +49,7 @@
                 <p class="pt-3">
                     Hãy đăng ký đề tài cho đồ án! có thể đăng ký đề tài mới hoặc chọn đề tài có sẵn được đề xuất
                 </p>
-                <a href="/student/lecturer-registration"
+                <a href="/student/topic-registration"
                         class="btn mt-8 bg-primary font-medium text-white shadow-lg shadow-primary/50 hover:bg-primary-focus focus:bg-primary-focus active:bg-primary-focus/90 dark:bg-accent dark:shadow-accent/50 dark:hover:bg-accent-focus dark:focus:bg-accent-focus dark:active:bg-accent/90">
                     Bắt đầu
                 </a>

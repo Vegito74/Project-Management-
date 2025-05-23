@@ -30,7 +30,7 @@ public class AssignmentAPI {
     }
 
     @DeleteMapping("/{id}/delete")
-    public ResponseEntity<?> deleteBuilding(@PathVariable Integer id) {
+    public ResponseEntity<?> deleteAssignment(@PathVariable Integer id) {
         assignmentService.deleteAssignment(id);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new ResponseData<>(HttpStatus.CREATED .value(),

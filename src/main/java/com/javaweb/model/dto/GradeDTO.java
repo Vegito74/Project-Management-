@@ -10,13 +10,10 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Data
-public class GradeDTO {
+public class GradeDTO extends AbstractDTO{
     @NotNull(message = "Không có thông tin Id")
     private Integer submissionId;
-
     @NotNull(message = "Chưa có điểm số!")
     private Double score;
-    @NotBlank(message = "Chưa có ngày khởi tạo")
-    private Date gradedDate;
     private String comments;
 }

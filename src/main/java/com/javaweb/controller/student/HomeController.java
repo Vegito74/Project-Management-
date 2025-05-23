@@ -29,17 +29,7 @@ public class HomeController {
         return mav;
     }
 
-    @GetMapping(value="/student/lecturer-registration")
-    public ModelAndView buidingList(){
-        ModelAndView mav = new ModelAndView("student/lecturer-registration");
-        return mav;
-    }
 
-    @GetMapping(value="/tin-tuc")
-    public ModelAndView news(){
-        ModelAndView mav = new ModelAndView("/web/news");
-        return mav;
-    }
 
     @GetMapping(value="/file")
     public ModelAndView contact(){

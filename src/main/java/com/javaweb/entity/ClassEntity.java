@@ -19,6 +19,7 @@ public class ClassEntity  extends BaseEntity{
     @JoinColumn(name = "lecturer_id", nullable = false)
     private LecturerEntity lecturer;
 
+
     @Column(name = "class_name", nullable = false, length = 100)
     private String className;
 
@@ -28,6 +29,11 @@ public class ClassEntity  extends BaseEntity{
     @Column(name = "status")
     private String status;
 
+    @OneToMany(mappedBy = "classEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<AssignmentEntity> assignmentEntities;
+
+    @OneToMany(mappedBy = "classEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<StudentEntity> studentEntities;
 
     // Many-to-Many với Student thông qua bảng trung gian class_student
     @ManyToMany

@@ -1,5 +1,6 @@
 package com.javaweb.service;
 
+import com.javaweb.entity.StudentEntity;
 import com.javaweb.model.response.StudentClassResponse;
 
 import java.util.List;

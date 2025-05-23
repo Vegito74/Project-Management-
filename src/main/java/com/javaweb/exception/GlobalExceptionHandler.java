@@ -8,12 +8,29 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.validation.FieldError;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
+
+import javax.validation.ConstraintViolationException;
 import java.util.stream.Collectors;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+    // Bắt lỗi khi sửa dữ liệu liên quan đến ràng buộc khoá ngoại
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<ResponseData<String>> handleConstraintViolation(ConstraintViolationException ex) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(new ResponseData<>(HttpStatus.CONFLICT.value(),
+                        "Không thể xóa do dữ liệu liên quan còn tồn tại. Vui lòng xóa dữ liệu liên quan trước.", null));
+    }
+    ///Xử lý lỗi file quá lớn
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    public ResponseEntity<String> handleMaxSizeException(MaxUploadSizeExceededException exc) {
+        return ResponseEntity
+                .status(HttpStatus.PAYLOAD_TOO_LARGE)
+                .body("Lỗi: Kích thước file vượt quá giới hạn cho phép (10MB)!");
+    }
 
     // Xử lý lỗi Validation (dữ liệu đầu vào không hợp lệ)
     @ExceptionHandler(MethodArgumentNotValidException.class)

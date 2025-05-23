@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class GradeEntity extends BaseEntity {
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "submission_id", nullable = false)
     private SubmissionEntity submission;
 

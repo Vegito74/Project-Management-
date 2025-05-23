@@ -14,4 +14,7 @@ import java.util.List;
 public interface AssignmentRepository extends JpaRepository<AssignmentEntity, Integer> {
     List<AssignmentEntity> findAllByClassEntity(ClassEntity classEntity);
     int countAllByClassEntity(ClassEntity classEntity);
+    AssignmentEntity findById(int id);
+
+
 }
